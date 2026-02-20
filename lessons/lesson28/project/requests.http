@@ -1,0 +1,66 @@
+### Переменные (REST Client)
+@baseUrl = http://localhost:3000
+@token = password
+
+### ========== Animals ==========
+
+### Список животных
+GET {{baseUrl}}/animals/list
+
+### Один животное по id
+GET {{baseUrl}}/animals/instance/1
+
+### Создать животное
+POST {{baseUrl}}/animals/create
+Content-Type: application/json
+
+{
+  "id": 10,
+  "name": "Шарик",
+  "type": "dog"
+}
+
+### Секретный маршрут (только admin, нужен token)
+GET {{baseUrl}}/animals/secret-route
+token: {{token}}
+
+###
+
+### ========== Cats (нужен token) ==========
+
+### Список котов
+GET {{baseUrl}}/cats/list
+token: {{token}}
+
+### Кот по id
+GET {{baseUrl}}/cats/1
+token: {{token}}
+
+### Добавить кота
+POST {{baseUrl}}/cats/99
+Content-Type: application/json
+token: {{token}}
+
+{
+  "id": 99,
+  "name": "Васька"
+}
+
+###
+
+### ========== Dogs ==========
+
+### Список собак
+GET {{baseUrl}}/dogs/list
+
+### Собака по id
+GET {{baseUrl}}/dogs/1
+
+### Добавить собаку
+POST {{baseUrl}}/dogs/
+Content-Type: application/json
+
+{
+  "id": 5,
+  "name": "Бобик"
+}
